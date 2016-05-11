@@ -1,0 +1,27 @@
+*{
+	position: absolute;
+	width: 40px;
+	height: 40px;
+}
+.arriba{
+	margin-top: 40px;
+}
+.medio-y{
+	margin-top: 80px;
+}
+.abajo{
+	margin-top: 120px;
+}
+.izquierda{
+	margin-left: 40px;
+}
+.medio-x{
+	margin-left: 80px;
+}
+.derecha{
+	margin-left: 120px;
+}
+.mibtn{
+	margin-top: 200px;
+	width: 150px;
+}

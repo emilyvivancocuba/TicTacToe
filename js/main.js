@@ -1,58 +1,55 @@
 var boton_jugar = document.getElementsByClassName('play');
+var resetear=document.getElementById('resetear');
+function reset(){
+	for (var k=0; k<9; k++) {
+		boton_jugar[k].textContent='';
+	}
+}
+resetear.onclick=reset();
 var contar=0;
+var suma=0;
 for (var i=0; i<9; i++) {
 	boton_jugar[i].onclick=function(){
 		contar++;
+		suma++;
 		if (contar%2===0) {
-			this.textContent = "o";
+			this.textContent = 'o';
 		}else{
-			this.textContent = "x";
+			this.textContent = 'x';
+		}
+		this.setAttribute('disabled', false);
+		if (suma>=5) {
+			if (($('#1').text()==$('#2').text()&&$('#1').text()==$('#3').text())||($('#1').text()==$('#4').text()&&$('#1').text()==$('#7').text())||($('#1').text()==$('#5').text()&&$('#1').text()==$('#9').text())) {
+				if ($('#1').text()=='x') {
+					alert('El ganador es x');
+					reset();
+				}
+				if ($('#1').text()=='o') {
+					alert('El ganador es o');
+					reset();
+				}
+			}else if (($('#2').text()==$('#5').text()&&$('#5').text()==$('#8').text())||($('#3').text()==$('#5').text()&&$('#5').text()==$('#7').text())||($('#4').text()==$('#5').text()&&$('#5').text()==$('#6').text())) {
+				if ($('#5').text()=='x') {
+					alert('El ganador es x');
+					reset();
+				}
+				if ($('#5').text()=='o') {
+					alert('El ganador es o');
+					reset();
+				}
+			}else if (($('#3').text()==$('#6').text()&&$('#6').text()==$('#9').text())||($('#7').text()==$('#8').text()&&$('#8').text()==$('#9').text())) {
+				if ($('#9').text()=='x') {
+					alert('El ganador es x');
+					reset();
+				}
+				if ($('#9').text()=='o') {
+					alert('El ganador es o');
+					reset();
+				}
+			}else if (suma===9) {
+				alert('JUEGO EMPATADO');
+				reset();
+			}
 		}
 	}
-}ganar();
-var uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve;
-uno=''; dos='';
-function ganar(){
-	uno+=document.getElementById('1').value;
-	dos+=document.getElementById('2').value;
-	tres+=document.getElementById('3').value;
-	cuatro+=document.getElementById('4').value;
-	cinco+=document.getElementById('5').value;
-	seis+=document.getElementById('6').value;
-	siete+=document.getElementById('7').value;
-	ocho+=document.getElementById('8').value;
-	nueve+=document.getElementById('9').value;
-	console.log(uno);
-	console.log(dos);
 }
-
-
-
-
-// if (($('#1').val==$('#2').val&&$('#1').val==$('#3').val)||($('#1').val==$('#4').val&&$('#1').val==$('#7').val)||($('#1').val==$('#5').val&&$('#1').val==$('#9').val)) {
-// 			if ($('#1').val=='x') {
-// 				//alert('El ganador es x');
-// 				console.log($('#1').val);
-// 			}else{
-// 				//alert('El ganador es o');
-// 				console.log($('#1').val);
-// 			}
-// 		}
-// 		if (($('#2').val==$('#5').val&&$('#5').val==$('#8').val)||($('#3').val==$('#5').val&&$('#5').val==$('#7').val)||($('#4').val==$('#5').val&&$('#5').val==$('#6').val)) {
-// 			if ($('#5').val=='x') {
-// 				//alert('El ganador es x');
-// 				console.log($('#5').val);
-// 			}else{
-// 				//alert('El ganador es o');
-// 				console.log($('#5').val);
-// 			}
-// 		}
-// 		if (($('#3').val==$('#6').val&&$('#6').val==$('#9').val)||($('#7').val==$('#8').val&&$('#8').val==$('#9').val)) {
-// 			if ($('#9').val=='x') {
-// 				//alert('El ganador es x');
-// 				console.log($('#9').val);
-// 			}else{
-// 				//alert('El ganador es o');
-// 				console.log($('#1').val);
-// 			}
-// 		}
